@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Information for tag {{tag.name}}</h2>
+
+<p>Tag ID is {{tag.serial_number}}</p>
+
+<p>At the moment you've not authorised us to talk to CODA. If you do that then we can have more fun. <a href="/control/auth/">Click here to authenticate with CODA</a>.</p>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<p>Welcome {% if user.first_name %}
+            {user.first_name}}!
+          {% else %}
+            {{user.username}}!
+          {% endif %}</p>
+
+	{% if not auth %}
+		<p>You need to register your account with your CODA account! <a href="/auth/">Click here to do so!</a></p>
+	{% endif %}
+	
+	{% if tag_list %}
+		<p>You have the following tags</p>
+
+		<ul>
+			{% for tag in tag_list %}
+				<li><a href="/tag/{{tag.id}}/">{{tag.name}}</a></li>
+			{% endfor %}
+		</ul>
+		
+	{% else %}
+		<p>You haven't yet added any Nano:ztag or Ztamps yet - <a href="instructions/">click here to learn now to do that!</a>
+	{% endif %}
+
+{% endblock %}

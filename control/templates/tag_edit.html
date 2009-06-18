@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h2>Edit tag {{tag.name}}</h2>
+
+
+	<form action="." method="POST">
+	
+		<table>
+			{% for field in form %}
+				<tr>
+					<td>{{field.label}}</td>
+					<td>{{field}}</td>
+				</td>
+			{% endfor %}
+		</table>
+	
+		<input type="submit" value="update">
+	
+	</form>
+
+
+{% endblock %}

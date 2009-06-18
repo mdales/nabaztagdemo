@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h2>Greetings</h2>
+
+  {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+  {% endif %}
+
+  <p>Please log in to access your CODA account.</p>
+
+  <form action='./' method='post' style="margin: 30px;">
+    <table>
+      <tr>
+	<td><label for="username">User name</label></td>
+	<td><input type="text" name="username" value="" id="username" /></td>
+      </tr>
+      <tr>
+	<td><label for="password">Password</label></td>
+	<td><input type="password" name="password" value="" id="password" /></td>
+      </tr>
+    </table>
+    <p><input type="submit" class="buttonskin" value="Login" />
+    <input type="hidden" name="next" value="{{ next }}" /></p>
+  </form>
+
+  <hr>
+  <p>
+    No account? <a href="/gui/accounts/create/">Click here</a> to create a new account.<br/>
+    Forgotten your password? <a href="/accounts/password_reset/">Click here.</a>
+  </p>
+
+
+{% endblock %}

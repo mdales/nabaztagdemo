@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>The CODA/Nabaztag:tag interface allows you to control your CODA screens using a Nano:ztag and Ztamp RFID tags. But to do that, you first need to set up your Nano:ztag and Ztamps to talk to this web site!</p>
+
+
+<p align="center"><img src="/static/bunnyflow.png"></p>
+
+<p>To register your Nano:ztag and Ztamps for use with CODA/Nabaztag:tag, go to <a href="http://my.violet.net/">your Nabaztag's website</a> and for each Nano:ztag and Ztamp you want to use with CODA, add a new App. Go the the /dev apps section, and then add the "Send data to an URL" application. In the control panel for that app add the following URL:</p>
+
+
+<pre>http://nabaztag.camvine.com/tag_access/?username={{user.username}}&tag=${ztamp.name}&serial=${ztamp.serial}</pre>
+
+<p>and set whether you want to have the CODA screen change when you add or remove the tag.</p>
+
+<p>Once you've done that, you then swipe you Nano:ztag or Ztamp on your Nabaztag:tag, so that this website (CODA/Nabaztag:tag) can see your tags for the first time. From then on, they'll appear on your home page here, and you can configure what they do next time you swipe them!</p>
+
+{% endblock %}
