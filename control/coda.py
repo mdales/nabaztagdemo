@@ -36,7 +36,9 @@ def get_display_list(access_token):
             BASE_CODA_URL + "getDisplays/")
         
     if reply['result'] == 'OK':            
-        return reply['response']
+        response = reply['response']
+        response.sort(key=lambda x: x['name'])
+        return response
     else:
         return []
 #
@@ -51,7 +53,9 @@ def get_source_list(access_token):
             BASE_CODA_URL + "getSources/")
         
     if reply['result'] == 'OK':            
-        return reply['response']
+        response = reply['response']
+        response.sort(key=lambda x: x['name'])
+        return response
     else:
         return []
 #

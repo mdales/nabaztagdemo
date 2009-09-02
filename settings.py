@@ -2,6 +2,8 @@
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -71,11 +73,19 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'nabaztag.urls'
 
+OAUTH_CALLBACK = 'http://nabaztag.camvine.com/'
+
+
+import sys
+import os
+DOC_ROOT = os.path.realpath(os.path.dirname(sys.argv[0]))
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Volumes/mwd/dev/git/nabaztag/templates',
+    os.path.join(DOC_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -86,3 +96,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'nabaztag.control',
 )
+
+local_settings = os.path.join(DOC_ROOT, 'local_settings.py')
+if os.path.exists(local_settings):
+    execfile(local_settings, locals(), globals())

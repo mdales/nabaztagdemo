@@ -225,8 +225,6 @@ def make_api_request(access_token, url, data=None):
         data += '%s=%s&' % (key, urllib.quote(parameters[key]))
     data = data[:-1]
 
-    print data
-
     conn.putheader('content-length', str(len(data)))
     conn.endheaders()
     conn.send(data)
@@ -235,8 +233,6 @@ def make_api_request(access_token, url, data=None):
     resp = conn.getresponse()
 
     data = resp.read()
-        
-    print data
         
     return simplejson.loads(data)    
 #

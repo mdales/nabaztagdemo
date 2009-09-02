@@ -79,6 +79,14 @@ class RFIDTag(models.Model):
 
 ##############################################################################
 #   
+class OneDisplay(models.Model):
+    uuid = models.CharField(max_length=36)
+#
+##############################################################################
+
+
+##############################################################################
+#   
 class TagDisplaySourceMapping(models.Model):
     """This maps a Tag to a Display/Source mapping. There may be multiple
     mappings per tag."""
@@ -87,10 +95,7 @@ class TagDisplaySourceMapping(models.Model):
     token = models.ForeignKey(RemoteToken)
     
     # Here we store the id's that CODA gives us for the sources and displays
-    display_uuid = models.CharField(max_length=36)
+    displays = models.ManyToManyField(OneDisplay)
     source_uuid = models.CharField(max_length=36)
 #
 ##############################################################################
-
-
-    
