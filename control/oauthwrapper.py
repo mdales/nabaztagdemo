@@ -92,6 +92,7 @@ def get_request_token():
     data = data[:-1]
 
     conn.putheader('content-length', str(len(data)))
+    conn.putheader('content-type', 'application/x-www-form-urlencoded')
     conn.endheaders()
     conn.send(data)
     conn.send('\n\r\n\r')
@@ -151,6 +152,7 @@ def get_access_token(user, request_token):
     data = data[:-1]
     
     conn.putheader('content-length', str(len(data)))
+    conn.putheader('content-type', 'application/x-www-form-urlencoded')
     conn.endheaders()
     conn.send(data)
     conn.send('\n\r\n\r')
@@ -226,6 +228,7 @@ def make_api_request(access_token, url, data=None):
     data = data[:-1]
 
     conn.putheader('content-length', str(len(data)))
+    conn.putheader('content-type', 'application/x-www-form-urlencoded')
     conn.endheaders()
     conn.send(data)
     conn.send('\n\r\n\r')
